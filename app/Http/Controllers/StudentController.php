@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Student;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class StudentController extends Controller
@@ -16,23 +17,25 @@ class StudentController extends Controller
     public function index(): View
     {
         $students = Student::all(); 
-        return view('students.index', compact('students'));
+        return view('student.index')->with('students', $students);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('student.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $input = $request->all();
+        Student::create($input);
+        return redirect('students')->with('flash_message', 'Student Addedd!');
     }
 
     /**
