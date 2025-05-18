@@ -3,7 +3,7 @@
  
  
 <div class="card">
-  <div class="card-header">Batches</div>
+  <div class="card-header">Payment</div>
   <div class="card-body">
    
  
