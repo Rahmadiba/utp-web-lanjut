@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use Illuminate\View\View;
 use PHPUnit\Framework\Constraint\Count;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 
 class CourseController extends Controller
 {
